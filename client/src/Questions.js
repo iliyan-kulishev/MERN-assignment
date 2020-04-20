@@ -4,15 +4,12 @@ import AskQuestion from "./AskQuestion";
 
 class Questions extends Component {
   render() {
-    //Map the questions to the question component by using props
-    //Pass the question id to the link path
-
-    let contentQuestions = <li>tom</li>;
+    let contentQuestions = <li>empty</li>;
     if (this.props.questions) {
-      console.log("i am going to render again");
+      console.log("render again");
       contentQuestions = this.props.questions.map(question => (
-        <div key={question._id} className="card bg-cards text-center p-3">
-          <h3 className="card-title">
+        <div key={question._id}>
+          <h3>
             <Link to={`/question/${question._id}`}>{question.text}</Link>
           </h3>
         </div>
@@ -20,11 +17,11 @@ class Questions extends Component {
     }
     return (
       <div>
-        <div className="titleWebsite col-lg-8 p-4">
+        <div>
           <h1>Questions</h1>
         </div>
-        <div className="card-columns">{contentQuestions}</div>
-        <div className="m-5">
+        <div>{contentQuestions}</div>
+        <div>
           <AskQuestion askQuestion={text => this.props.askQuestion(text)} />
         </div>
       </div>

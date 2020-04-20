@@ -21,7 +21,7 @@ class App extends Component {
     this.getData();
   }
 
-  //Using async await
+  
   async getData() {
     let url = `${this.API_URL}/questions`; // URL of the API.
     let result = await fetch(url); // Get the data
@@ -32,14 +32,14 @@ class App extends Component {
     });
   }
 
-  //Function to get the question ID
+  
   getQuestion(id) {
     //  go over all elements in 'this.state.question' and find the element
     // that matches 'e.id === Number(id)' where 'e' is one of the objects in 'this.state.questions'
     return this.state.questions.find(e => e._id === id); // And then return it
   }
 
-  //Function to vote the answers
+  
   async putVote(questionId, answerId) {
     let url = `${this.API_URL}/questions/`
       .concat(questionId)
@@ -66,15 +66,12 @@ class App extends Component {
     console.log("The link was clicked.");
   }
 
-  //Function to ask new question
+  
   askQuestion(text) {
-    // This is the question object that will be saved to the list of questions
-    //miss posting new answers
-    this.postData(text);
+    this.postQuestion(text);
   }
 
-  //Post method to post a new question
-  postData(text) {
+  postQuestion(text) {
     let url = `${this.API_URL}/questions/`;
     fetch(url, {
       method: "POST",
@@ -92,11 +89,8 @@ class App extends Component {
         console.log(json);
         this.getData();
       });
-
-    // TODO: And then use getData again to update contents
   }
 
-  //Function to post new answer
   postAnswer(questionId, text) {
     let url = `${this.API_URL}/questions/`
       .concat(questionId)
