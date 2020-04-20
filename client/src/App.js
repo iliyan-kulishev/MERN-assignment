@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import { Router } from "@reach/router";
 import Question from "./Question";
 import Questions from "./Questions";
-import Nav from "./Nav";
 
 class App extends Component {
   //Initialize the state data of questions
@@ -123,25 +122,7 @@ class App extends Component {
 
   render() {
     return (
-      <main className="container">
-        {/*  <Nav> is not a target for routing, so we put it outside of <Router>
-         *  It will appear as a header on each page.
-         */}
-        <Nav />
-        <div className="jumbotron">
-          <div className="d-flex flex-row-reverse p-5">
-            <div className="d-none d-sm-block">
-              <h1>
-                Ask Question
-                <br></br>
-              </h1>
-              <h5>
-                Find questions
-                <br></br>from Stackoverflow
-              </h5>
-            </div>
-          </div>
-        </div>
+      <main className="container">        
 
         <Router>
           {/*

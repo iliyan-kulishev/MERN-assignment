@@ -21,7 +21,7 @@ class Questions extends Component {
     return (
       <div>
         <div className="titleWebsite col-lg-8 p-4">
-          <h1>Recent questions</h1>
+          <h1>Questions</h1>
         </div>
         <div className="card-columns">{contentQuestions}</div>
         <div className="m-5">
