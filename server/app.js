@@ -86,10 +86,10 @@ async function putVote(questionId, answerId) {
    */
   async function addQuestions(count = 10) {
     const answers = [
-      { text: "This question requires a lot of research", votes: 2 },
-      { text: "I don't know the answer", votes: 3 },
-      { text: "Can you give more details about this issue", votes: 0 },
-      { text: "This is the solution", votes: 3 },
+      { text: "This question is redundant", votes: 2 },
+      { text: "I have no idea", votes: 3 },
+      { text: "Can you add a screenshot?", votes: 0 },
+      { text: "Listen here, let me tell you what to do", votes: 3 },
       { text: "Check this out", votes: 0 }
     ];
     function getRandomInt(min, max) {
@@ -98,10 +98,10 @@ async function putVote(questionId, answerId) {
 
     function getRandomQuestion() {
       return [
-        "How do I return the response from an Observable in Angular 2?",
-        "Can you help me with this React app?",
-        "Objects in JavaScript",
-        "How to build an API?"
+        "Should Javascript die for good?",
+        "Can you help me with this app?",
+        "How to pass a JavaScript function as parameter?",
+        "How to deploy to Heroku?"
       ][getRandomInt(0, 3)];
     }
 
@@ -192,6 +192,11 @@ app.put(
       .then(updatedVote => response.json(updatedVote));
   }
 );
+
+// "Redirect" all get requests (except for the routes specified above) 
+//to React's entry point (index.html) to be handled by Reach router
+// It's important to specify this route as the very last one to prevent 
+//overriding all of the other routes
 
 app.get('*', (request, response) =>
     response.sendFile(path.resolve('..', 'client', 'build', 'index.html'))
