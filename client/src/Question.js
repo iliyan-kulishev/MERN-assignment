@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { Link } from "@reach/router";
 import PostAnswer from "./PostAnswer";
 
 class Question extends Component {
