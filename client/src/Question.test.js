@@ -36,6 +36,6 @@ it('calls "handleVote" when the voting button is clicked', () => {
             handleVote={handleVote}
         />
     const {getAllByText} = render(comp);
-    //fireEvent.click(getByText(/question/i)[0]);
+    fireEvent.click(getAllByText(/vote/i)[0]);
     expect(handleVote).toHaveBeenCalled();
 });
